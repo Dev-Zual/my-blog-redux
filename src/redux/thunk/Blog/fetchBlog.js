@@ -1,4 +1,4 @@
-import { loadProduct } from "../../actionCreator/blogAction";
+import { loadBlog } from "../../actionCreator/blogAction";
 
 const fetchBlogData = () => {
   return async (dispatch, getState) => {
@@ -6,7 +6,7 @@ const fetchBlogData = () => {
     const data = await res.json();
 
     if (data.data.length) {
-      dispatch(loadProduct(data.data));
+      dispatch(loadBlog(data.data));
     }
   };
 };

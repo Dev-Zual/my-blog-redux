@@ -11,6 +11,7 @@ const blogReducer = (state = initialState, action) => {
         ...state,
         blogs: action.payload,
       };
+
     case ADD_BLOG:
       return {
         ...state,

@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 
 const UpdateBlog = () => {
   const [blog, setBlog] = useState([]);
-  const { brand, model, image, price } = blog;
   console.log(blog);
+  const { brand, model, image, price } = blog;
+
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     const url = `http://localhost:5000/blog/${id}`;

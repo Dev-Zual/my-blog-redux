@@ -4,12 +4,13 @@ const {
   DELETE_BLOG,
 } = require("../actionTypes/actionTypes");
 
-exports.loadProduct = (blog) => {
+exports.loadBlog = (blog) => {
   return {
     type: LOAD_BLOG,
     payload: blog,
   };
 };
+
 exports.addBlog = (blog) => {
   return {
     type: ADD_BLOG,
