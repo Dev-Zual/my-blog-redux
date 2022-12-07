@@ -1,8 +1,19 @@
+import { LOAD_BLOG } from "../actionTypes/actionTypes";
+
 const initialState = {
-  test: "TEST",
+  blogs: [],
 };
 
 const blogReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case LOAD_BLOG:
+      return {
+        ...state,
+        blogs: action.payload,
+      };
+
+    default:
+      return state;
+  }
 };
 export default blogReducer;
