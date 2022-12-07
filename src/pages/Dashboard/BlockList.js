@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import deleteSingleBlog from "../../redux/thunk/Blog/deleteBlog";
 import fetchBlogData from "../../redux/thunk/Blog/fetchBlog";
 
 const BlockList = () => {
@@ -13,7 +14,7 @@ const BlockList = () => {
     <div class="flex flex-col justify-center items-center h-full w-full ">
       <div class="w-full max-w-7xl mx-auto rounded-lg  bg-white shadow-lg border border-gray-200">
         <header class="px-5 py-4 border-b border-gray-100">
-          <div class="font-semibold text-gray-800">Products</div>
+          <div class="font-semibold text-gray-800">All Blogs</div>
         </header>
 
         <div class="overflow-x-auto p-3">
@@ -67,7 +68,7 @@ const BlockList = () => {
                   </td>
                   <td class="p-2">
                     <div class="flex justify-center">
-                      <button>
+                      <button onClick={() => dispatch(deleteSingleBlog(_id))}>
                         <svg
                           class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
                           fill="none"
