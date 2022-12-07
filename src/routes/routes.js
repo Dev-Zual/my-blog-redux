@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import UpdateBlog from "../components/UpdateBlog";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import Main from "../layout/Main/Main";
 import AddBlog from "../pages/Dashboard/AddBlog";
@@ -33,6 +34,10 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard",
         element: <BlockList />,
+      },
+      {
+        path: "update/:id",
+        element: <UpdateBlog />,
       },
       {
         path: "add-blog",

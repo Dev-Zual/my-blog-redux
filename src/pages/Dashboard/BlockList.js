@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import deleteSingleBlog from "../../redux/thunk/Blog/deleteBlog";
 import fetchBlogData from "../../redux/thunk/Blog/fetchBlog";
+import { BiEdit } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const BlockList = () => {
   const products = useSelector((state) => state.blogs);
@@ -67,10 +69,18 @@ const BlockList = () => {
                     </div>
                   </td>
                   <td class="p-2">
-                    <div class="flex justify-center">
+                    <div class="flex justify-between">
+                      <Link
+                        className="hover:text-green-500"
+                        to={`update/${_id}`}
+                      >
+                        <button>
+                          <BiEdit size={20} />
+                        </button>
+                      </Link>
                       <button onClick={() => dispatch(deleteSingleBlog(_id))}>
                         <svg
-                          class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
+                          class="w-8 h-8 hover:text-red-600 rounded-full hover:bg-gray-100 p-1"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
