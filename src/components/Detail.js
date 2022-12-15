@@ -1,25 +1,26 @@
-import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useParams } from "react-router-dom";
+import { loadedBlog, loadingBlog } from "../redux/actionCreator/blogAction";
+
+import getSingleBlog from "../redux/thunk/Blog/getSingleBlog";
 
 const Detail = () => {
+  const { blog, loading } = useSelector((state) => state);
+  const dispatch = useDispatch();
   const { id } = useParams();
 
-  const url = `http://localhost:5000/blog/${id}`;
+  useEffect(() => {
+    dispatch(loadingBlog());
+    dispatch(getSingleBlog(id));
+    dispatch(loadedBlog());
+  }, [id, dispatch]);
 
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["detail"],
-    queryFn: () => fetch(url).then((res) => res.json()),
-  });
-  if (isLoading) {
+  if (loading) {
     return <p>loading.....</p>;
   }
-  if (error) {
-    return <p>something wrong</p>;
-  }
-  const blog = data.data;
-  console.log(blog);
+
   return (
     <div className="shadow-lg relative rounded-3xl border p-3 flex flex-col text-indigo-900">
       <div className="h-52 w-52 mx-auto">

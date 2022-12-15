@@ -10,7 +10,13 @@ const BlockList = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBlogData());
-  });
+  }, [dispatch]);
+
+  const loading = useSelector((state) => state.loading);
+
+  if (loading) {
+    return <p>loading.....</p>;
+  }
 
   return (
     <div class="flex flex-col justify-center items-center h-full w-full ">
