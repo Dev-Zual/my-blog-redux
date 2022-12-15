@@ -2,7 +2,9 @@ import { getSingleBlogAction } from "../../actionCreator/blogAction";
 
 const getSingleBlog = (id) => {
   return async (dispatch, getState) => {
-    const res = await fetch(`http://localhost:5000/blog/${id}`);
+    const res = await fetch(
+      `https://moontech-server-g4u6.onrender.com/blog/${id}`
+    );
     const data = await res.json();
 
     if (data.data) {
